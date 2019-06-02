@@ -1,0 +1,47 @@
+// ----------------------------------------------------------------------
+// Font
+// ----------------------------------------------------------------------
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=vietnamese");
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "Raleway SemiBold";
+  src: url("../fonts/Raleway-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Raleway ExtraBold";
+  src: url("../fonts/Raleway-ExtraBold.ttf");
+}
+// ----------------------------------------------------------------------
+// Base
+// ----------------------------------------------------------------------
+@import "base/mixins";
+@import "base/variables";
+@import "base/extends";
+@import "base/reset";
+@import "base/fonts";
+@import "base/utility";
+@import "base/button";
+@import "base/waves";
+// ----------------------------------------------------------------------
+// Layout
+// ----------------------------------------------------------------------
+@import "layout/header";
+@import "layout/footer";
+
+// ----------------------------------------------------------------------
+// Custom
+// ----------------------------------------------------------------------
+@import "custom/custom-plugin";
+
+// ----------------------------------------------------------------------
+// Pages
+// ----------------------------------------------------------------------
+@import "pages/homepage";
+
+// ----------------------------------------------------------------------
+// Responsive
+// ----------------------------------------------------------------------
+@import "responsive/responsive";
