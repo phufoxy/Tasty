@@ -1,0 +1,675 @@
+body {
+  background-image: url("../../images/broken_noise.png");
+  font-family: "Cormorant";
+}
+.wrapper {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  @include transition(0.5s);
+  .offcanvas & {
+    overflow: hidden;
+    position: absolute;
+    &:after {
+      @include transition(2s);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
+      background: rgba(0, 0, 0, 0.3);
+      content: "";
+    }
+  }
+}
+.button-toggle {
+  display: none;
+  position: absolute;
+  z-index: 99999;
+  right: 0px;
+  top: 30px;
+  height: 44px;
+  width: 44px;
+  @media screen and(max-width:$screen-md) {
+    display: block;
+  }
+  &.active {
+    i {
+      background-color: transparent;
+      &::after {
+        @include transform(rotateZ(-45deg));
+        top: 0;
+      }
+      &::before {
+        @include transform(rotateZ(45deg));
+        top: 0;
+      }
+    }
+  }
+  i {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 2px;
+    background-color: $cl_white;
+    @include transition(all 0.2s ease-out);
+    &::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 2px;
+      top: -7px;
+      left: 0;
+      background-color: $cl_white;
+      @include transition(all 0.2s ease-out);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 2px;
+      top: 7px;
+      left: 0;
+      background-color: $cl_white;
+      @include transition(all 0.2s ease-out);
+    }
+  }
+}
+.banner {
+  position: relative;
+  background-image: url("../../images/hero_1.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 635px;
+  .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    @include transform(translate(-50%, -50%));
+    &__title {
+      color: $cl_white;
+      @include rem(font-size, 71);
+    }
+    &__norm {
+      color: $cl_white;
+      @include rem(font-size, 30);
+    }
+    &__link {
+      color: $cl_white;
+      border-bottom: 1px solid $cl_red;
+    }
+  }
+}
+.restaurants {
+  padding: 100px 0;
+  .block {
+    @include flexbox();
+    &__left {
+      width: 50%;
+      .images {
+        height: 450px;
+        width: 80%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+    &__right {
+      position: relative;
+      width: 50%;
+      .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 80%;
+        @include transform(translate(-50%, -50%));
+        &__title {
+          color: $cl_white;
+          font-family: "satisfy";
+          @include rem(font-size, 36);
+          @include rem(line-height, 46);
+        }
+        &__norm {
+          color: rgba($color: $cl_white, $alpha: 0.5);
+          font-family: "Cormorant Regular";
+          @include rem(line-height, 26);
+        }
+        &__button {
+          margin-top: 30px;
+          .button {
+            border: 1.5px solid $cl_red;
+            background-color: transparent;
+            color: $cl_white;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+.today {
+  .heading {
+    margin: 50px 0;
+    .content {
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+      }
+      &__norm {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+      }
+    }
+  }
+  .box {
+    background-color: transparent;
+    border: none;
+    @include flexbox();
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+    &__item {
+      width: 23%;
+      &:nth-child(2n) {
+        margin-top: 140px;
+      }
+      .images {
+        height: 150px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      .content {
+        margin-top: 10px;
+        &__title {
+          color: $cl_white;
+          font-family: "Cormorant";
+          @include rem(font-size, 24);
+          @include rem(line-height, 42);
+        }
+        &__price {
+          color: #fee856;
+          font-family: "Cormorant";
+          @include rem(font-size, 24);
+        }
+        &__norm {
+          color: rgba($color: $cl_white, $alpha: 0.5);
+          @include rem(line-height, 26);
+        }
+      }
+    }
+  }
+}
+.gallery {
+  padding: 100px 0;
+  .heading {
+    margin: 50px 0;
+    .content {
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+      }
+      &__norm {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+      }
+    }
+  }
+  .images {
+    height: 200px;
+    background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    &--big {
+      height: 420px;
+    }
+  }
+}
+.testimony {
+  padding: 100px 0;
+  .heading {
+    margin: 50px 0;
+    .content {
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+      }
+      &__norm {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+      }
+    }
+  }
+  .block {
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    .images {
+      position: relative;
+      height: 600px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 80%;
+    }
+    .content {
+      position: absolute;
+      left: 80%;
+      top: 30%;
+      width: 50%;
+      @include transform(translate(-50%, 0%));
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+      }
+      &__author {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+        @include rem(font-size, 36);
+      }
+    }
+  }
+}
+.our {
+  .block {
+    @include flexbox();
+    // height: 700px;
+    &__left {
+      position: relative;
+      width: 50%;
+      .heading {
+        .content {
+          &__title {
+            color: $cl_white;
+            font-family: "satisfy";
+            @include rem(font-size, 30);
+          }
+          &__norm {
+            color: rgba($color: $cl_white, $alpha: 0.5);
+          }
+        }
+      }
+      .info {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 70%;
+        @include transform(translate(-50%, -50%));
+        .content {
+          &__title {
+            color: $cl_white;
+            font-family: "satisfy";
+            @include rem(font-size, 30);
+          }
+          &__norm {
+            color: rgba($color: $cl_white, $alpha: 0.5);
+          }
+          &__button {
+            margin-top: 20px;
+            .button {
+              border: 1.5px solid $cl_red;
+              background-color: transparent;
+              color: $cl_white;
+              padding: 8px 16px;
+            }
+          }
+        }
+      }
+    }
+    &__right {
+      width: 50%;
+      .slider {
+        position: relative;
+        z-index: 999;
+        .slick-dots {
+          position: absolute;
+          top: -30px;
+          right: -50px;
+          height: 30px;
+          width: auto;
+          @include transform(translate(-50%, 0));
+          z-index: 9;
+          li {
+            cursor: pointer;
+            &.slick-active {
+              button {
+                background: #000000;
+                border: 2px solid $cl_white;
+              }
+            }
+            button {
+              height: 14px;
+              width: 14px;
+              padding: 2px;
+              background: $cl_red;
+              border-radius: 100%;
+              cursor: pointer;
+              border: 2px solid $cl_red;
+            }
+          }
+        }
+
+        &__item {
+          .images {
+            height: 500px;
+          }
+        }
+      }
+    }
+  }
+}
+.events {
+  padding: 100px 0;
+  .heading {
+    margin: 50px 0;
+    .content {
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+        @include rem(line-height, 42);
+      }
+      &__norm {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+        @include rem(line-height, 24);
+      }
+    }
+  }
+  .box {
+    &__item {
+      box-shadow: 0 0 10px -2px rgba($color: #000000, $alpha: 0.55);
+      .images {
+        height: 300px;
+      }
+      .content {
+        padding: 50px 20px 40px 20px;
+        &__title {
+          color: rgba($color: $cl_white, $alpha: 0.5);
+          @include rem(font-size, 26);
+          margin-bottom: 30px;
+        }
+        &__norm {
+          color: rgba($color: $cl_white, $alpha: 0.5);
+        }
+        .social {
+          @include flexbox();
+          @include align-items(center);
+          @include justify-content(space-between);
+          margin-top: 30px;
+          &__left {
+            .item {
+              display: inline-block;
+              margin-left: 5px;
+              margin-right: 5px;
+              &__norm {
+                color: rgba($color: $cl_white, $alpha: 0.5);
+              }
+            }
+          }
+          &__right {
+            .link {
+              color: $cl_red;
+              text-decoration: underline;
+              font-family: "Times New Roman", Times, serif;
+              &::before {
+                font-family: "Font Awesome 5 Free";
+                content: "\f061";
+                font-weight: 900;
+                color: rgba($color: $cl_white, $alpha: 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.reservation {
+  padding: 100px 0;
+  .heading {
+    margin: 50px 0;
+    .content {
+      &__title {
+        color: $cl_white;
+        font-family: "satisfy";
+        @include rem(font-size, 30);
+        @include rem(line-height, 42);
+      }
+      &__norm {
+        color: rgba($color: $cl_white, $alpha: 0.5);
+        @include rem(line-height, 24);
+      }
+    }
+  }
+  .form {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    &__group {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .lable {
+        color: $cl_white;
+        @include rem(line-height, 36);
+      }
+      .input {
+        width: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        outline: none;
+        background-color: transparent;
+        padding: 10px 20px;
+        border-radius: 4px;
+        color: $cl_white;
+        &--submit {
+          background-color: transparent;
+          color: $cl_white;
+          padding: 8px 16px;
+          margin-top: 10px;
+          border: 2px solid $cl_red;
+        }
+        &--select {
+          width: 100%;
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          outline: none;
+          background-color: transparent;
+          padding: 10px 20px;
+          border-radius: 4px;
+          color: $cl_white;
+          option {
+            background: rgba($color: #000000, $alpha: 0.5);
+          }
+        }
+      }
+    }
+  }
+}
+.experience {
+  display: block;
+  // overflow: hidden;
+  padding: 100px 0;
+  .timeline {
+    position: relative;
+    padding: 20px 0 20px;
+    &::before {
+      content: "";
+      width: 2px;
+      height: 100%;
+      background-color: #434343;
+      position: absolute;
+      left: 50%;
+      min-height: 250px;
+    }
+    &__header {
+      position: relative;
+      padding: 20px 0;
+     &:not(:first-child){
+      margin-bottom: 30px;
+      margin-top: 60px;
+     }
+      &::after {
+        clear: both;
+      }
+      .content {
+        position: absolute;
+        background-color: #434343;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        padding: 10px;
+        border-radius: 4px;
+        &__title {
+          color: $cl_white;
+          letter-spacing: 10px;
+        }
+      }
+    }
+    &--left {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .content {
+        width: 45%;
+        text-align: right;
+      }
+    }
+    &--right {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .content {
+        width: 45%;
+        text-align: left;
+        float: right;
+      }
+    }
+    &__block {
+      position: relative;
+      margin-bottom: 10px;
+      width: 40%;
+      width: 100%;
+      padding: 20px 0;
+      &::after {
+        clear: both;
+      }
+      .badge {
+        position: absolute;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: $cl_red;
+        border-radius: 100%;
+        @include transform(translateX(-50%));
+        i {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          @include transform(translate(-50%, -50%));
+          color: $cl_white;
+        }
+      }
+      .content {
+        width: 45%;
+        &__title {
+          color: $cl_white;
+          font-family: "satisfy";
+          @include rem(font-size, 26);
+          @include rem(line-height, 26);
+        }
+        &__norm {
+          color: rgba($color: $cl_white, $alpha: 0.5);
+          @include rem(line-height, 24);
+          @include rem(font-size, 16);
+        }
+      }
+    }
+  }
+}
+.book {
+  position: relative;
+  height: 500px;
+  background-image: url("../../images/hero_1.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  .overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -50%));
+    &__title {
+      color: $cl_white;
+      font-family: "satisfy";
+      @include rem(font-size, 30);
+      @include rem(line-height, 42);
+    }
+    &__norm {
+      color: rgba($color: $cl_white, $alpha: 0.5);
+      @include rem(line-height, 24);
+    }
+    &__button {
+      margin-top: 30px;
+      .button {
+        display: inline-block;
+        border: 1.5px solid $cl_red;
+        background-color: transparent;
+        color: $cl_white;
+        padding: 5px 10px;
+        width: 160px;
+        height: 40px;
+      }
+    }
+  }
+}
+// off canvas
+#offcanvas {
+  position: absolute;
+  z-index: 1901;
+  width: 270px;
+  // background: lighten($brand-black, 0%);
+  background: #000 url("../../images/broken_noise.png") repeat;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background: #000 url("../../images/broken_noise.png") repeat;
+  }
+  top: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 75px 40px 40px 40px;
+  overflow-y: auto;
+  display: none;
+  @include transform(translateX(270px));
+  @include transition(0.5s);
+  @media screen and(max-width: 768px) {
+    display: block;
+  }
+  .offcanvas & {
+    @include transform(translateX(0px));
+  }
+  a {
+    color: rgba(255, 255, 255, 0.5);
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 5px 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}

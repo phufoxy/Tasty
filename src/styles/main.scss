@@ -1,19 +1,22 @@
 // ----------------------------------------------------------------------
 // Font
 // ----------------------------------------------------------------------
+$screen-md: 768px;
+$screen-xs: 992px;
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=vietnamese");
 @font-face {
-  font-family: "Lato";
-  src: url("../fonts/Lato-Regular.ttf");
+  font-family: "Cormorant";
+  src: url("../fonts/CormorantGaramond/CormorantGaramond-Bold.ttf");
 }
 @font-face {
-  font-family: "Raleway SemiBold";
-  src: url("../fonts/Raleway-SemiBold.ttf");
+  font-family: "Cormorant Regular";
+  src: url("../fonts/CormorantGaramond/CormorantGaramond-Regular.ttf");
 }
 @font-face {
-  font-family: "Raleway ExtraBold";
-  src: url("../fonts/Raleway-ExtraBold.ttf");
+  font-family: "satisfy";
+  src: url("../fonts/Satisfy-Regular.ttf");
 }
+
 // ----------------------------------------------------------------------
 // Base
 // ----------------------------------------------------------------------
@@ -25,6 +28,9 @@
 @import "base/utility";
 @import "base/button";
 @import "base/waves";
+@import "base/animate";
+@import "base/slick-theme";
+@import "base/slick";
 // ----------------------------------------------------------------------
 // Layout
 // ----------------------------------------------------------------------

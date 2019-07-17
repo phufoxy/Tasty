@@ -24,7 +24,7 @@ gulp.task('connect:dev', () => {
         root: [gulp.sources.src, '.tmp', './'],
         livereload: true,
         port: 1234,
-        host: '0.0.0.0',
+        host: 'localhost',
         fallback: gulp.sources.src + '/index.html'
     });
 });

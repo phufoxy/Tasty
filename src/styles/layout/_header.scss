@@ -1,0 +1,42 @@
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  @include transition(all 0.3s);
+  &.header--scroll {
+    &.scrolled {
+      background: #000 url('../images/broken_noise.png') repeat;
+      top: -87px;
+      width: 100%;
+    }
+  }
+  .block {
+    padding-top: 20px;
+    .logo {
+      &__link {
+        color: $cl_white;
+        @include rem(font-size, 42);
+      }
+      &--current {
+        color: $cl_red;
+      }
+    }
+  }
+  .menu {
+    @media screen and(max-width:$screen-md) {
+      display: none;
+    }
+    .item {
+      display: inline-block;
+      padding: 30px 15px;
+      &__link {
+        color: rgba($color: $cl_white, $alpha: 0.7);
+        text-transform: uppercase;
+        @include rem(font-size, 16);
+      }
+    }
+  }
+}
